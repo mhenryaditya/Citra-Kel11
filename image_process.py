@@ -65,9 +65,6 @@ def evaluate_metrics(original_image, compressed_image):
     return psnr_value, ssim_value
 
 def compress_image(image, output_path, quality=50):
-    # Compress image by saving with lower quality
-    # image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    # cv2.imwrite(output_path, image_rgb, [cv2.IMWRITE_JPEG_QUALITY, quality])
     img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     print("Dimensi gambar awal:", img.shape)
     img_YCrCb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
