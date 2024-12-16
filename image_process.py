@@ -18,7 +18,7 @@ def main():
     compress_image(segmented, output_path)
 
     # Evaluate PSNR and SSIM
-    psnr, ssim_val = evaluate_metrics(input_path, output_path)
+    psnr, ssim_val = evaluate_metrics(segmented, output_path)
     print(f"PSNR: {psnr:.2f} dB")
     print(f"SSIM: {ssim_val:.4f}")
 
