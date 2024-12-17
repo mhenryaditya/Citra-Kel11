@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 from compress import compress_image, evaluate_metrics
 from morfologi import improve_segmentation
 from segmentasi import segment_image
+import os
 
 def main():
     # Input image path
@@ -18,7 +19,7 @@ def main():
     compress_image(segmented, output_path)
 
     # Evaluate PSNR and SSIM
-    psnr, ssim_val = evaluate_metrics(segmented, output_path)
+    psnr, ssim_val = evaluate_metrics(input_path, output_path)
     print(f"PSNR: {psnr:.2f} dB")
     print(f"SSIM: {ssim_val:.4f}")
 
@@ -44,6 +45,8 @@ def main():
     plt.show()
 
     print(f"Compressed image saved to {output_path}")
+    print(f"Ukuran image asli : {((os.path.getsize(input_path))/1024):.2f} KB")
+    print(f"Ukuran image output : {((os.path.getsize(output_path))/1024):.2f} KB")
 
 if __name__ == "__main__":
     main()
